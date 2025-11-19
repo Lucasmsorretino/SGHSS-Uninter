@@ -1,16 +1,16 @@
 # Backlog de Tarefas - SGHSS
 
 ## 🚀 Doing (Em Execução)
-* **Preparação do Ambiente:** Instalar Flask e SQLAlchemy.
-* **Estrutura de Pastas:** Criar diretórios conforme padrão MVC/MVT.
+* **API (Rotas):** Criar rota de Registro e Login (Autenticação).
+* **API (Rotas):** Criar rota de Cadastro de Paciente (CRUD).
 
 ## 📋 To Do (A Fazer)
-* **Código (Models):** Traduzir o Diagrama de Classes para classes Python (`models.py`).
-* **Banco de Dados:** Inicializar o SQLite (`flask db init`).
-* [cite_start]**API (Rotas):** Implementar rota de Cadastro de Paciente (Requisito RF001)[cite: 67].
-* **Testes:** Configurar Pytest.
+* **Código:** Implementar as classes Appointment e Professional (em seus respectivos models).
+* **Testes:** Configurar ambiente de testes com Pytest.
+* **Documentação:** Criar a documentação dos Endpoints (Swagger/OpenAPI).
 
 ## ✅ Done (Feito)
 * Definição da Stack: Python + Flask + SQLite.
-* Fase 2: Diagrama de Entidade-Relacionamento (DER).
-* [cite_start]Fase 2: Diagrama de Classes (UML).
+* Fase 2: Diagrama de Classes (UML) e Modelagem Modular.
+* **Configuração:** Criação e Ativação do ambiente virtual (`venv`).
+* **Versionamento:** Criação do arquivo `.gitignore`.
