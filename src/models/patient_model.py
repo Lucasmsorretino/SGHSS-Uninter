@@ -1,4 +1,4 @@
-from .__init__ import db
+from database import db
 # datetime é usado para manipular datas, como 'data_nascimento'
 from datetime import date 
 

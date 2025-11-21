@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify
 from models.user_model import User
-from models import db
+from database import db
 from datetime import datetime
 from functools import wraps
+# Importa as funções para criar o token
+from flask_jwt_extended import create_access_token
 
 # Cria um Blueprint (módulo de rotas) para Autenticação
 auth = Blueprint('auth', __name__)
@@ -56,18 +58,17 @@ def login():
 
     user = User.query.filter_by(email=email).first()
 
-    # Verifica o usuário e a senha (usando o hash seguro)
     if user and user.check_password(password):
-        # NOTA: Em um projeto real, aqui você geraria um JWT (JSON Web Token)
-        # Por simplicidade e para a entrega do projeto, simularemos um token.
-        
-        simulated_token = f"TOKEN_SGHSS_{user.id}_{user.role}_{datetime.now().strftime('%Y%m%d%H%M%S')}"
-        
-        return jsonify({
-            "message": "Login realizado com sucesso!",
-            "token": simulated_token,
-            "user_id": user.id,
-            "role": user.role
-        }), 200 # OK
+            # GERAÇÃO DO JWT REAL
+            # identity=user.id: guarda o ID do usuário dentro do token criptografado
+            # additional_claims: guarda o perfil (role) para verificarmos permissão depois
+            access_token = create_access_token(identity=str(user.id), additional_claims={"role": user.role})
+            
+            return jsonify({
+                "message": "Login realizado com sucesso!",
+                "token": access_token,  # Token real (eyJh...)
+                "user_id": user.id,
+                "role": user.role
+            }), 200
     else:
         return jsonify({"message": "Credenciais inválidas. Verifique seu e-mail e senha."}), 401 # Unauthorized

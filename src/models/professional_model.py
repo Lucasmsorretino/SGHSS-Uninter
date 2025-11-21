@@ -1,4 +1,4 @@
-from .__init__ import db
+from database import db
 
 class Professional(db.Model):
     __tablename__ = 'professionals'
@@ -11,6 +11,7 @@ class Professional(db.Model):
     especialidade = db.Column(db.String(50))
 
     # Relacionamento 1:N com Consultas (a ser implementado no model Appointment)
+    consultas = db.relationship('Appointment', backref='professional', lazy='dynamic')
     
     def to_dict(self):
         """Retorna representação para JSON."""

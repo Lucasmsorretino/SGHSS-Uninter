@@ -11,3 +11,6 @@ class Config:
     
     # Desabilita o aviso de modificação do track, que polui o console
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+        # Configuração do JWT
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY') or 'chave-secreta-do-jwt-troque-isso-em-producao'

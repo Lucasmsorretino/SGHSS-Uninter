@@ -2,4 +2,5 @@ Flask
 Flask-SQLAlchemy      # Para mapeamento Objeto-Relacional (ORM)
 Werkzeug              # Para hashing seguro de senhas (bcrypt, obrigatório para LGPD/Segurança)
 python-dotenv         # Para gerenciar variáveis de ambiente
+Flask-JWT-Extended
 Pytest                # Para testes de unidade (Fase 4)
