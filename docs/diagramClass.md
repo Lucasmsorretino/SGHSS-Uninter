@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     %% Classe Base de Usuário (Autenticação e Acesso)
     class User {
@@ -51,3 +52,4 @@ classDiagram
     User "1" -- "0..1" Patient : possui cadastro >
     Patient "1" --> "*" Appointment : solicita >
     Professional "1" --> "*" Appointment : realiza >
+```
